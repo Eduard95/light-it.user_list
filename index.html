@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Users List</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="js/jquery-ui.min.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery-template.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script src="js/script.js"></script>
+</head>
+<body>
+	<div class="container text-center"><button id="gender-stats-btn">Gender stats</button></div>
+	<div id="gender-stats-popup">
+		<canvas id="gender-chart" width="640" height="480"></canvas>
+	</div>
+	<div class="container user_list">
+		<div class="row user_list_head">
+			<div class="col col-md-2 col-sm-2 col-md-offset-1 col-sm-offset-1">
+				<b>Last</b>
+			</div>
+			<div class="col col-md-2 col-sm-2">
+				<b>First</b>
+			</div>
+			<div class="col col-md-2 col-sm-2">
+				<b>Username</b>
+			</div>
+			<div class="col col-md-2 col-sm-2">
+				<b>Phone</b>
+			</div>
+			<div class="col col-md-2 col-sm-2">
+				<b>Location</b>
+			</div>
+		</div>
+		<div id="content"></div>
+	</div>
+	<script type="text/html" id="user_template">
+		<div class="row user_info user_short_info">
+			<div class="col col-md-1 col-sm-1">
+				<span class="cell"><img data-src="avatar_url" data-alt="User" class="small_img"></span>
+			</div>
+			<div class="col col-md-2 col-sm-2">
+				<span class="cell text-capitalize" data-content="last_name"></span>
+			</div>
+			<div class="col col-md-2 col-sm-2">
+				<span class="cell text-capitalize" data-content="first_name"></span>
+			</div>
+			<div class="col col-md-2 col-sm-2">
+				<span class="cell" data-content="username"></span>
+			</div>
+			<div class="col col-md-2 col-sm-2">
+				<span class="cell" data-content="phone"></span>
+			</div>
+			<div class="col col-md-2 col-sm-2">
+				<span class="cell text-capitalize" data-content="state"></span>
+			</div>
+			<div class="col col-md-1 col-sm-1">
+				<span class="cell details_link glyphicon glyphicon-plus" data-template-bind='[{"attribute": "data-details-id", "value": "username"}]'></span>
+			</div>
+		</div>
+		<div data-id="username" class="row user_info user_desc">
+			<div class="col-md-3 col-sm-3 col-md-offset-1">
+				<div class="block first_block">
+					<div class="clearfix">
+						<h3 class="text-capitalize" data-content="first_name"></h3>
+						<img src="img/female.png" alt="Female" class="gender_ico">
+					</div>
+					<p><b>Username</b> <span data-content="username"></span></p>
+					<p><b>Registered</b> <span data-content="registered"></span></p>
+					<p><b>Email</b> <span data-content="email"></span></p>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<div class="block">
+					<p><b>Address</b> <span data-content="address"></span></p>
+					<p><b>City</b> <span data-content="city"></span></p>
+					<p><b>Zip Code</b> <span data-content="zip_code"></span></p>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<div class="block">
+					<p><b>Birthday</b> <span data-content="birthday"></span></p>
+					<p><b>Phone</b> <span data-content="phone"></span></p>
+					<p><b>Cell</b> <span data-content="cell"></span></p>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-3">
+				<div class="block">
+					<img data-src="avatar_url" data-alt="User" class="large_img">
+				</div>
+			</div>
+		</div>
+	</script>
+</body>
+</html>
