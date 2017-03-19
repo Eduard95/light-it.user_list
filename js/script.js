@@ -25,6 +25,7 @@ function getUserData(data) {
 
 $(function () {
 	var currentExpanded = null;
+	var oldButton = null;
 	var userTemplate = $('#user_template');
 	var users = null;
 	var popup = $('#gender-stats-popup');
@@ -55,24 +56,25 @@ $(function () {
 	});
 
 	$(document).on('click', '.details_link', function () {
-		var $this = $(this);
-		var detailsId = $this.data('details-id');
+		var thisButton = $(this);
+		var detailsId = thisButton.data('details-id');
 		var details = $('#' + detailsId);
 
 		if (currentExpanded) {
 			currentExpanded.removeClass('expanded');
-			$this.removeClass('glyphicon-minus');
-			$this.addClass('glyphicon-plus');
+			oldButton.removeClass('glyphicon-minus');
+			oldButton.addClass('glyphicon-plus');
 		}
 
 		if (currentExpanded && currentExpanded.is(details)) {
 			currentExpanded = null;
 		}
 		else {
-			$this.removeClass('glyphicon-plus');
-			$this.addClass('glyphicon-minus');
+			thisButton.removeClass('glyphicon-plus');
+			thisButton.addClass('glyphicon-minus');
 			details.addClass('expanded');
 			currentExpanded = details;
+			oldButton = thisButton;
 		}
 	});
 
