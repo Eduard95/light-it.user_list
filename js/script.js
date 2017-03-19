@@ -91,11 +91,11 @@ $(function () {
 		var chart = new Chart(ctx, {
 			type: 'pie',
 			data: {
-				labels: ['Males', 'Females'],
+				labels: ['Female', 'Male'],
 				datasets: [
 					{
 						data: [malesCount.toFixed(2), femalesCount.toFixed(2)],
-						backgroundColor: ['red', 'blue']
+						backgroundColor: ['#434348', '#7cb5ec']
 					}
 				]
 			}
